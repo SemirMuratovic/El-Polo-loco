@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ff3300;
+    border-radius: 10px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Varela Round', 'Times New Roman', Times, serif;
+    background-image: url('./img/10_style_images/background_image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #ff3300;
+    font-style: oblique;
+    text-shadow: 1px 1px 3px rgba(128, 0, 0, 0.78);
+    letter-spacing: 6px;
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+canvas {
+    width: 100%;
+    height: inherit;
+    max-height: 100vh;
+    background-color: black;
+    border-radius: 8px;
+    display: block; /* hier kommt none*/
+}
+
+.end-screen {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.end-screen img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+#reload_img {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    bottom: 40px;
+}
+
+#reload_img:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.body-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.rotate-screen {
+    background-image: url('./img/10_style_images/rotateDevice.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.d-none {
+    display: none;
+}
+
+.start-screen {
+    width: 100%;
+    height: 100%;
+    display: flex; /* hier kommt flex*/
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 8px;
+    filter: grayscale(40%);
+}
+
+#play_btn {
+    height: 5.5%;
+    width: 15%;
+    min-width: 120px;
+    min-height: 40px;
+    border-radius: 50vh;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(255, 158, 0, 1) 0%, #ffd900 50%, rgba(255, 158, 0, 1) 100%);
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.5em;
+    color: #ff3300;
+    font-style: oblique;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: #ff3300 solid 1.7px;
+}
+
+#play_btn:hover {
+    cursor: pointer;
+    background: linear-gradient(0deg, rgba(255, 217, 0, 1) 0%, rgba(255, 158, 0, 1) 50%, rgba(255, 217, 0, 1) 100%);
+    box-shadow: 0px 0px 26px 2px rgba(255, 255, 255, 0.78);
+}
+
+.pos-abs {
+    position: absolute;
+}
+
+.icon-size {
+    height: 10%;
+    min-height: 56px;
+    min-width: 56px;
+}
+
+.icon-size:hover {
+    cursor: pointer;
+    scale: 1.2;
+}
+
+.bottom-icon {
+    bottom: 10px;
+}
+
+.top-icon {
+    top: 10%;
+}
+
+.full-screen-icon {
+    right: 15px;
+}
+
+.info-icon {
+    left: 15px;
+}
+
+.sound-icons {
+    height: 10%;
+    min-height: 32px;
+    position: absolute;
+    display: flex;
+    right: 5%;
+}
+
+.fill-div-height {
+    height: 100%;
+}
+
+.fill-div-height:hover {
+    cursor: pointer;
+    scale: 1.2;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.highlight {
+    z-index: 999;
+}
+
+.info-screen {
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.background {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.info {
+    background-image: url('./img/10_style_images/description-image.jpg');
+    height: 95%;
+    width: 80%;
+    z-index: 999;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 24px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.info h2,
+.info h3 {
+    margin-bottom: 32px;
+}
+
+.info h2:hover {
+    scale: 1.1;
+}
+
+.story {
+    margin: 6%;
+    overflow: auto;
+    height: -webkit-fill-available;
+}
+
+.story p {
+    color: black;
+    font-size: 1.5em;
+    text-align: justify;
+    margin: 0 24px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close-icon {
+    height: 7.5%;
+    min-height: 32px;
+    min-width: 32px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-icon:hover {
+    cursor: pointer;
+    scale: 1.2;
+}
+
+.controls-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.controls img {
+    width: 32px;
+}
+
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.arrow p{
+    font-size: 24px;
+}
+
+.rot-l {
+    rotate: 90deg;
+}
+
+.rot-r {
+    rotate: -90deg;
+}
+
+.bottle {
+    border: solid black 2px;
+    border-radius: 4px;
+}
+
+hr {
+    border-top: 2px solid red;
+    border-style: outset;
+}
+
+.privacy {
+    text-align: start;
+}
+
+.mobile-controls {
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    display: none;
+    bottom: 6%;
+}
+
+.adjust {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1040px) {
+    h1 {
+        display: none;
+    }
+
+    canvas{
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+@media (max-width: 680px) {
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+    .mobile-controls {
+        display: flex;
+    }
+}
