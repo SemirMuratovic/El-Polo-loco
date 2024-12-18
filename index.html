@@ -1,76 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./fonts.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./img/4_enemie_boss_chicken/1_walk/G1.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./fonts.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./img/4_enemie_boss_chicken/1_walk/G1.png" type="image/x-icon" />
     <title>El Pollo loco</title>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <audio src="./audio/background_music.mp3" loop></audio>
     <h1>EL POLLO LOCO</h1>
     <div id="full_screen" class="body-wrapper">
-        <div class="rotate-screen" id="rotate_screen"></div>
-        <div id="start_screen" class="start-screen">
-            <img class="start-screen-image" src="./img/9_intro_outro_screens/start/startscreen_2.png" alt="">
-            <button id="play_btn" onclick="startGame()">Play</button>
-            <img class="icon-size pos-abs bottom-icon info-icon" onclick="openInfo()"
-                src="./img/10_style_images/info-icon.svg" alt="">
+      <div class="rotate-screen" id="rotate_screen"></div>
+      <div id="start_screen" class="start-screen">
+        <img class="start-screen-image" src="./img/9_intro_outro_screens/start/startscreen_2.png" alt="" />
+        <button id="play_btn" onclick="startGame()">Play</button>
+        <img class="icon-size pos-abs bottom-icon info-icon" onclick="openInfo()" src="./img/10_style_images/info-icon.svg" alt="" />
+      </div>
+      <div>
+        <div class="sound-icons top-icon">
+          <img id="full_screen_icon" class="fill-div-height" onclick="toggleFullScreen()" src="./img/10_style_images/full-screen-icon.svg" alt="" />
+          <img id="music_icon" class="fill-div-height" src="./img/10_style_images/volume-icon.svg" alt="" />
+          <img id="sound_icon" class="fill-div-height" src="./img/10_style_images/music-icon.svg" alt="" />
         </div>
-        <div>
-            <div class="sound-icons top-icon">
-                <img id="full_screen_icon" class="fill-div-height" onclick="toggleFullScreen()"
-                    src="./img/10_style_images/full-screen-icon.svg" alt="">
-                <img id="music_icon" class="fill-div-height" src="./img/10_style_images/volume-icon.svg" alt="">
-                <img id="sound_icon" class="fill-div-height" src="./img/10_style_images/music-icon.svg" alt="">
-            </div>
-            <div class="sound-icons top-icon">
-                <img id="no_music_icon" class="fill-div-height" src="./img/10_style_images/close-icon.svg" alt="">
-                <img id="no_sound_icon" class="fill-div-height" src="./img/10_style_images/close-icon.svg" alt="">
-            </div>
+        <div class="sound-icons top-icon">
+          <img id="no_music_icon" class="fill-div-height" src="./img/10_style_images/close-icon.svg" alt="" />
+          <img id="no_sound_icon" class="fill-div-height" src="./img/10_style_images/close-icon.svg" alt="" />
         </div>
-        <div id="mobile_controls" class="d-none">
-            <div class="adjust">
-                <img id="move_left" class="rot-r" src="./img/10_style_images/up-arrow.png" alt="">
-                <img id="move_right" class="rot-l" src="./img/10_style_images/up-arrow.png" alt="">
-            </div>
+      </div>
+      <div id="mobile_controls" class="d-none">
+        <div class="adjust">
+          <img id="move_left" class="rot-r" src="./img/10_style_images/up-arrow.png" alt="" />
+          <img id="move_right" class="rot-l" src="./img/10_style_images/up-arrow.png" alt="" />
+        </div>
 
-            <div class="adjust">
-                <img id="throw" class="bottle" src="./img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png" alt="">
-                <img id="jump" src="./img/10_style_images/up-arrow.png" alt="">
-            </div>
+        <div class="adjust">
+          <img id="throw" class="bottle" src="./img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png" alt="" />
+          <img id="jump" src="./img/10_style_images/up-arrow.png" alt="" />
         </div>
-        <div id="end_screen" class="end-screen d-none">
-            <img id="end_screen_image" src="./img/9_intro_outro_screens/game_over/oh no you lost!.png" alt="">
-            <img id="reload_img" src="./img/10_style_images/reload.png" onclick="reloadStartScreen()" alt="">
+      </div>
+      <div id="end_screen" class="end-screen d-none">
+        <img id="end_screen_image" src="./img/9_intro_outro_screens/game_over/oh no you lost!.png" alt="" />
+        <img id="reload_img" src="./img/10_style_images/reload.png" onclick="reloadStartScreen()" alt="" />
+      </div>
+      <div id="info_screen" class="info-screen">
+        <div id="background" class="background d-none" onclick="closeInfo()"></div>
+        <div id="info" class="info">
+          <img id="story-close" class="close-icon" onclick="closeInfo()" src="./img/10_style_images/close-icon.svg" alt="" />
+          <div id="main-info" class="main-info">
+            <a onclick="openStory()">
+              <h2>STORY</h2>
+            </a>
+            <a onclick="openCtrlInfo()">
+              <h2>BEDIENUNG</h2>
+            </a>
+            <a onclick="openRightsInfo()">
+              <h2>RECHTLICHES</h2>
+            </a>
+          </div>
+          <div id="story" class="story d-none"></div>
+          <div id="controls_info" class="controls-info d-none"></div>
+          <div id="rights" class="story d-none"></div>
         </div>
-        <div id="info_screen" class="info-screen">
-            <div id="background" class="background d-none" onclick="closeInfo()"></div>
-            <div id="info" class="info">
-                <img id="story-close" class="close-icon" onclick="closeInfo()"
-                    src="./img/10_style_images/close-icon.svg" alt="">
-                <div id="main-info" class="main-info">
-                    <a onclick="openStory()">
-                        <h2>STORY</h2>
-                    </a>
-                    <a onclick="openCtrlInfo()">
-                        <h2>BEDIENUNG</h2>
-                    </a>
-                    <a onclick="openRightsInfo()">
-                        <h2>RECHTLICHES</h2>
-                    </a>
-                </div>
-                <div id="story" class="story d-none"></div>
-                <div id="controls_info" class="controls-info d-none"></div>
-                <div id="rights" class="story d-none"></div>
-            </div>
-        </div>
-        <canvas id="canvas" width="720" height="480"></canvas>
+      </div>
+      <canvas id="canvas" width="720" height="480"></canvas>
     </div>
 
     <script src="./js/imagePaths.js"></script>
@@ -92,6 +87,5 @@
     <script src="./levels/level1.js"></script>
     <script src="./js/templates.js"></script>
     <script src="./js/game.js"></script>
-</body>
-
+  </body>
 </html>
